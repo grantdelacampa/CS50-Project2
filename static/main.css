@@ -1,0 +1,350 @@
+/*-------------------------------------------------------------------------------------
+			Full page formatting
+--------------------------------------------------------------------------------------*/
+
+:root {
+	--main-bg-color: black;
+	--secondary-bg-color: #3a3f54;
+	--accent-bg-color: blue;
+	--text-color: white;
+	--border-color: darkgrey;
+	--local-message: #424bf5;
+	--server-message: green;
+}
+* {
+  box-sizing: border-box;
+}
+
+html, body{
+  margin: 0;
+  height: 100%;
+  background-color: var(--main-bg-color);
+}
+.row {
+  min-height: calc(100% - 67.83px);							/*CHANGEA HERE BRO*/
+}
+
+.row h2 {
+  background-color: var(--secondary-bg-color);
+  color: var(--text-color);
+  text-align: center;
+  margin-top: 0px;
+  padding-top: 6px;
+  margin-bottom: 0px;
+  padding-bottom: 6px;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+#user-dialog{
+  background-color: var(--secondary-bg-color);
+  background-color: rgba(0,0,0,0.5);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(0%, -50%);
+}
+
+#dialog-div{
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+  width: 60%;
+  padding-top: 15%;
+}
+#dialog-form {
+  background-color: white;
+  padding-bottom: 10px;
+}
+
+#disable {
+	background: var(--border-color);
+	pointer-events:none;
+}
+
+/*-------------------------------------------------------------------------------------
+			Nav Bar
+--------------------------------------------------------------------------------------*/
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  color: var(--text-color);
+}
+
+/* style nab bar header */
+.navbar h2{
+	float: left;
+	padding-left: 10px;
+}
+
+#nav-user {
+	float:right;
+	padding-right: 10px;
+	padding-top: 7px;
+}
+
+#nav-user:hover {
+  color: var(--accent-bg-color);
+}
+
+
+/*-------------------------------------------------------------------------------------
+			Main Columns
+--------------------------------------------------------------------------------------*/
+
+/* Create three unequal columns that floats next to each other */
+.column {
+  float: left;
+  min-height: 542px;
+  max-height: 542px;
+}
+
+/* Left and right column */
+.column.side {
+  width: 25%;
+  overflow-y: scroll;
+  height: inherit;
+}
+
+.column.side::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* Middle column */
+.column.middle {
+  width: 75%;
+  border-left: solid 1px var(--border-color);
+  background-color: var(--main-bg-color);
+  overflow-y: scroll;
+  height: inherit;
+}
+
+.column.middle::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#add-icon {
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+#add-icon:hover {
+  color: var(--text-color);
+  outline: ridge;
+}
+
+/*-------------------------------------------------------------------------------------
+			Room Column
+--------------------------------------------------------------------------------------*/
+
+/* Room Containers */
+.room-container {
+  border: 1px solid var(--border-color);
+  background-color: var(--secondary-bg-color);
+  margin-top: 2px;
+  margin-right: 2px;
+  margin-left: 2px;
+  color: var(--text-color);
+  text-align: center;
+  white-space: wrap;
+}
+
+#room-name {
+  position: sticky;
+  right: 0;
+  top: 0;
+}
+
+.room-container:hover {
+  border: 1px ridge;
+  background-color: var(--border-color);
+}
+
+#dropper {
+  position: sticky;
+  right: 0;
+  top: 0;
+}
+
+#new-room {
+  display: none;
+ }
+ 
+#room-input {
+  border-radius: 10px;
+  border-style: ridge;
+  width: 100%;
+  background-color: var(--secondary-bg-color);
+  color: var(--text-color);
+}
+
+#create-button {
+  width: 100%;
+  background-color: var(--local-message);
+  border-color: var(--local-message);
+}
+
+#middle-col {
+  padding-bottom: 47.5px;
+}
+
+/*-------------------------------------------------------------------------------------
+			Chat containers
+--------------------------------------------------------------------------------------*/
+
+/* Chat containers */
+.container {
+  background-color: var(--local-message);
+  color: var(--text-color);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 3px 0 3px;				/* 10px 0 top right bottom left*/
+}
+
+.container-notice {
+  background-color: #f53b69;
+  color: black;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* Darker chat container */
+.darker {
+  background-color: var(--server-message);
+}
+
+/* Clear floats */
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Style images */
+.container label {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+/* Style the right image */
+.container label.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+/* Style time text */
+.time-right {
+  float: right;
+  color: #aaa;
+}
+
+/* Style time text */
+.time-left {
+  float: left;
+  color: #999;
+}
+
+/*-------------------------------------------------------------------------------------
+			Chat container message bar formatting
+--------------------------------------------------------------------------------------*/
+
+/* Style the message bar */
+.message-bar {
+  border: 2px solid var(--secondary-bg-color);
+  background-color: var(--main-bg-color);			
+  position: fixed;
+  bottom: 0;
+  right: 0;  
+  width: inherit;
+  border-radius: 5px;
+  padding: 10px;								/* top right bottom left */
+  margin: 10px 0px 0px 0px;
+}
+/* Clear floats */
+.message-bar::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+/* style the message bar input */
+.message-bar div{
+  overflow: hidden;
+  padding-right: .5em;
+}
+.message-bar input.text-field{
+  border-radius: 10px;
+  border-style: ridge;
+  padding: 2px;
+  width: 100%;
+  background-color: var(--secondary-bg-color);
+  color: var(--text-color);
+}
+
+/* style when the user hovers over the text box */
+.message-bar input.text-field:hover {
+  outline: none;
+}
+
+/* style when the user is typing in the textbox */
+.message-bar input.text-field:focus {
+  outline: none;
+}
+
+/* style for the input button */
+.message-bar input.input-button{
+  float: right;
+  border-radius: 15px;
+  background-color: var(--local-message);
+  border-color: var(--local-message);
+  color: white;
+  padding: 2px 10px 2px 10px;		/*top right bottom left*/
+}
+
+/* style when the mouse hovers over the input button */
+.message-bar input.input-button:hover {
+  outline: none;
+}
+
+/*-------------------------------------------------------------------------------------
+			Media Queries
+--------------------------------------------------------------------------------------*/
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+
+
+  .column.side, .column.middle {
+    width: 100%;
+  }
+  
+  .column.side {
+	min-height: 0;
+  }
+  .row{
+	min-height: 0px;
+  }
+  
+  .room-container {
+	display: none;
+  }
+  
+  .column {
+    min-height: 0px;		
+   } 
+}
