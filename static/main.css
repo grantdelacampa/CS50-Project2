@@ -21,7 +21,7 @@ html, body{
   background-color: var(--main-bg-color);
 }
 .row {
-  min-height: calc(100% - 67.83px);							/*CHANGEA HERE BRO*/
+  min-height: calc(100% - 67.83px);
 }
 
 .row h2 {
